@@ -90,6 +90,8 @@ def ensure_weight(model_name, repo_id=DEFAULT_WEIGHT_REPO, weights_dir=None):
     if target.is_file():
         return target
     target.parent.mkdir(parents=True, exist_ok=True)
+    # Hugging Face counts model downloads when its top-level config.json is requested.
+    hf_hub_download(repo_id=repo_id, filename="config.json")
     hf_hub_download(repo_id=repo_id, filename=target.name, local_dir=target.parent)
     if not target.is_file():
         raise FileNotFoundError(f"Downloaded checkpoint was not found: {target}")
