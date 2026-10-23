@@ -1,8 +1,12 @@
 # SpectraVision
 
+
+
 ## Abstract
 
 Converting irregularly spaced mass spectrometry (MS/MS) data into computable representation is a foundational architectural choice that sets the upper bound for both computational efficiency and model accuracy. Existing MS/MS representations for machine-learning (ML) models can be divided into two parts: (1) fine-grained binned vectors that preserve spectra resolution but are sparse; (2) transformer-sequence encoders that can avoid sparse binning but must process variable-length inputs with continuous, shift-sensitive m/z coordinates. Critically, both strategies trade computational efficiency for representation quality, creating significant time and memory bottlenecks. In this paper, we present SpectraVision, which encodes MS/MS spectra into compact image-tensors, preserves high-resolution m/z information and supports efficient learning. Efficacy of these image-tensors to extract spatial features from the spectrum image is demonstrated with a CNN model and a Vision Transformer to validate the ability of image-tensors to preserve long-range spectral dependencies. Both CNN and ViT models then exhibit superior Top-k peptide-retrieval accuracy when compared with binned-Vector and transformer-sequence encoders. An added advantage of SpectraVision based models, necessary for training large models, is usage of 87% fewer parameters (~6.4M versus 51.8M) than binned-vector approach. Zero-shot evaluation on multiple species, non-tryptic peptides, and immunopeptides showcases the robustness of vision-based models to extend and improve ML models for MS-based proteomics.
+
+![SpectraVision](assets/row_107638_fragment_ablation.png)
 
 ## Set up with uv
 
