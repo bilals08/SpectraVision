@@ -26,7 +26,7 @@
       "model_params": {
         "img_size": [224, 224]
       },
-      "weights": "weights/SpectraVision-1C-CNN.pt"
+      "weights": "weights/SpectraVision-1C-CNN.safetensors"
     },
     "SpectraVision-3C-CNN": {
       "encoding": "SpectraVision-3C",
@@ -38,7 +38,7 @@
       "model_params": {
         "img_size": [224, 224]
       },
-      "weights": "weights/SpectraVision-3C-CNN.pt"
+      "weights": "weights/SpectraVision-3C-CNN.safetensors"
     },
     "SpectraVision-PeakViT": {
       "encoding": "SpectraVision-1C",
@@ -63,7 +63,7 @@
         "min_mz_wavelength": 0.2,
         "max_mz_wavelength": 1000
       },
-      "weights": "weights/SpectraVision-PeakViT.pt"
+      "weights": "weights/SpectraVision-PeakViT.safetensors"
     }
   }
 }

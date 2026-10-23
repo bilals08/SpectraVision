@@ -7,6 +7,7 @@ data/
 outputs/
 checkpoints/
 *.pt
+*.safetensors
 *.pth
 *.ckpt
 weights/
@@ -14,7 +15,6 @@ weights/
 *.hdf5
 .DS_Store
 inference_data/
-hub_cards/
-scripts/
 SpectraVision-Data
+huggingface
 *.lock

@@ -51,6 +51,7 @@ Evaluate a model with the following command:
 ```
 
 Choose `SpectraVision-3C-CNN` or `SpectraVision-PeakViT` for another model. Add `--data path/to/test.h5` to evaluate your labeled H5. The command ranks theoretical and decoy peptides within each batch, reports top 1 and top 3 accuracy, and writes predictions to `outputs/predictions_batch1024/`.
+`--download_weight=true` fetches the selected model's `.safetensors` weights from Hugging Face.
 
 ## Training on Your Data
 

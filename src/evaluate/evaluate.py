@@ -6,6 +6,7 @@ from pathlib import Path
 
 import torch
 import torch.nn.functional as F
+from safetensors.torch import load_file
 from torch.utils.data import DataLoader
 
 from src.configs import build_components, get_device, load_profiles, weight_path
@@ -18,13 +19,13 @@ def load_model_from_weights(model_name, profile, path, device):
     path = Path(path)
     if not path.is_file():
         raise FileNotFoundError(f"Weights for {model_name} were not found: {path}")
-    checkpoint = torch.load(path, map_location="cpu", weights_only=True)
-    if isinstance(checkpoint, dict) and "model" in checkpoint:
-        state = checkpoint["model"]
-    elif isinstance(checkpoint, dict) and "state_dict" in checkpoint:
-        state = checkpoint["state_dict"]
+    if path.suffix == ".safetensors":
+        state = load_file(str(path), device="cpu")
+    elif path.suffix == ".pt":
+        checkpoint = torch.load(path, map_location="cpu", weights_only=True)
+        state = checkpoint.get("model", checkpoint.get("state_dict", checkpoint))
     else:
-        state = checkpoint
+        raise ValueError(f"Unsupported weight format: {path.suffix}")
     model.load_state_dict(state, strict=True)
     model.to(device)
     model.eval()
