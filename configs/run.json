@@ -1,0 +1,11 @@
+{
+  "train_data": "SpectraVision-Data/training_data",
+  "validation_data": null,
+  "test_data": "SpectraVision-Data/inference_data/Massive-KB-v1_test_sorted.h5",
+  "inference_output": "outputs/predictions_batch1024",
+  "training_configs": {
+    "SpectraVision-1C-CNN": "examples/1c_cnn.json",
+    "SpectraVision-3C-CNN": "examples/3c_cnn.json",
+    "SpectraVision-PeakViT": "examples/config.json"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "evaluation": {
+    "batch_size": 1024,
+    "num_workers": 8,
+    "device": "auto",
+    "forward_batch_size": 64,
+    "cuda_autocast": true,
+    "cudnn_enabled": true,
+    "cudnn_benchmark": true,
+    "cudnn_deterministic": false
+  },
+  "loss": {
+    "name": "multi_positive_info_nce_with_decoy",
+    "temperature": 0.07,
+    "threshold": 0.99,
+    "decoy_weight": 1.0
+  },
+  "models": {
+    "SpectraVision-1C-CNN": {
+      "encoding": "SpectraVision-1C",
+      "encoding_params": {
+        "max_mz": 5000,
+        "num_peaks": 200,
+        "bin_multiply_factor": 10
+      },
+      "model_params": {
+        "img_size": [224, 224]
+      },
+      "weights": "weights/SpectraVision-1C-CNN.pt"
+    },
+    "SpectraVision-3C-CNN": {
+      "encoding": "SpectraVision-3C",
+      "encoding_params": {
+        "max_mz": 5000,
+        "num_peaks": 200,
+        "bin_multiply_factor": 10
+      },
+      "model_params": {
+        "img_size": [224, 224]
+      },
+      "weights": "weights/SpectraVision-3C-CNN.pt"
+    },
+    "SpectraVision-PeakViT": {
+      "encoding": "SpectraVision-1C",
+      "encoding_params": {
+        "max_mz": 5000,
+        "num_peaks": 200,
+        "bin_multiply_factor": 10
+      },
+      "model_params": {
+        "img_size": [224, 224],
+        "patch_size": 16,
+        "in_channels": 1,
+        "d_model": 512,
+        "embedding_dim": 256,
+        "num_layers": 2,
+        "nhead": 8,
+        "position_encoding": "learned",
+        "mask_empty_patches": true,
+        "bin_multiply_factor": 10,
+        "max_mz": 5000,
+        "intensity_channel": 0,
+        "min_mz_wavelength": 0.2,
+        "max_mz_wavelength": 1000
+      },
+      "weights": "weights/SpectraVision-PeakViT.pt"
+    }
+  }
+}

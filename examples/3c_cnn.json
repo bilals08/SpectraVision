@@ -1,0 +1,24 @@
+{
+  "encoding": "SpectraVision-3C",
+  "encoding_params": {
+    "max_mz": 5000,
+    "num_peaks": 200,
+    "bin_multiply_factor": 10
+  },
+  "model": "SpectraVision-3C-CNN",
+  "model_params": {},
+  "train_data": ["data/train.h5"],
+  "validation_data": ["data/validation.h5"],
+  "output_dir": "outputs/3c_cnn",
+  "epochs": 10,
+  "batch_size": 32,
+  "learning_rate": 0.0001,
+  "loss_params": {
+    "temperature": 0.07,
+    "threshold": 0.99,
+    "decoy_weight": 1.0
+  },
+  "num_workers": 0,
+  "seed": 42,
+  "device": "auto"
+}
